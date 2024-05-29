@@ -61,7 +61,7 @@
 
     <form method="GET" action="${pageContext.request.contextPath}/alumnos/buscar">
         <div class="input-group mb-3">
-            <input type="text" class="form-control" name="nombre" placeholder="Buscar...">
+            <input type="text" class="form-control" name="nombre" placeholder="Buscar Alumno...">
             <div class="input-group-append">
                 <button class="btn btn-outline-secondary" type="submit">Buscar</button>
             </div>

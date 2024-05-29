@@ -66,4 +66,10 @@ public class MaestroController {
         return new ModelAndView("redirect:/maestros");
     }
 
+    @GetMapping("/buscar")
+    public ModelAndView findByNombre(@RequestParam("nombre") String nombre) {
+        ModelAndView modelAndView = new ModelAndView("maestro/read");
+        modelAndView.addObject("maestros", maestroService.findByNombre(nombre));
+        return modelAndView;
+    }
 }

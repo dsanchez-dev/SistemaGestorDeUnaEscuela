@@ -57,6 +57,14 @@
     <br>
     <h1 class="mb-4">Lista de Maestros</h1>
 
+    <form method="GET" action="${pageContext.request.contextPath}/maestros/buscar">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" name="nombre" placeholder="Buscar Maestro...">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+            </div>
+        </div>
+
     <form method="GET" action="${pageContext.request.contextPath}/maestros/new">
         <button type="submit" class="btn btn-success mb-3">Agregar Nuevo Maestro</button>
     </form>

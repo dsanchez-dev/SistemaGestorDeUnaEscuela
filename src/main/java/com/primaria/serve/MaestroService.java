@@ -33,4 +33,7 @@ public class MaestroService {
         maestroRepository.deleteById(id);
     }
 
+    public List<MaestroEntity> findByNombre(String nombre) {
+        return maestroRepository.findByNombre(nombre);
+    }
 }
