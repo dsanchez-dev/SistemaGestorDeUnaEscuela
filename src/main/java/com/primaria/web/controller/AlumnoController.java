@@ -9,11 +9,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/alumnos")
-public class AlumnosController {
+public class AlumnoController {
 
     private final AlumnoService alumnoService;
 
-    public AlumnosController(AlumnoService alumnoService) {
+    public AlumnoController(AlumnoService alumnoService) {
         this.alumnoService = alumnoService;
     }
 
@@ -56,10 +56,19 @@ public class AlumnosController {
     }
 
     @DeleteMapping("/{id}")
-    public ModelAndView deleteAlumnoById(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
+    public ModelAndView deleteById(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
         alumnoService.delete(id);
-        redirectAttributes.addFlashAttribute("message", "Alumno eliminado exitosamente!");
-        redirectAttributes.addFlashAttribute("alertClass", "alert-danger");
+        redirectAttributes.addFlashAttribute("message",
+                                             "Alumno eliminado exitosamente!");
+        redirectAttributes.addFlashAttribute("alertClass",
+                                             "alert-danger");
         return new ModelAndView("redirect:/alumnos");
+    }
+
+    @GetMapping("/buscar")
+    public ModelAndView buscarPorNombre(@RequestParam("nombre") String nombre) {
+        ModelAndView modelAndView = new ModelAndView("alumno/read");
+        modelAndView.addObject("alumnos", alumnoService.findByNombre(nombre));
+        return modelAndView;
     }
 }

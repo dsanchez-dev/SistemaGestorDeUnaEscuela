@@ -6,27 +6,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Alumnos</title>
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        footer.footer {
+            background-color: #e9ecef;
+            margin-top: auto;
+        }
+        .navbar-brand, .nav-link {
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="${pageContext.request.contextPath}/inicio">Escuela Primaria</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="${pageContext.request.contextPath}/alumnos">Alumno</a>
-            </li>
-        </ul>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary navbar-toggler">
+    <div class="container">
+        <a class="navbar-brand" href="${pageContext.request.contextPath}/inicio">Instituto Leonarda Gómez Blanco</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/inicio">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/alumnos">Alumnos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/maestros">Maestros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/materias">Materias</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/padres">Padres</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/calificaciones">Calificaciones</a>
+                </li>
+            </ul>
+        </div>
     </div>
 </nav>
+
 <div class="container mt-5">
     <br>
     <h1 class="mb-4">Lista de Alumnos</h1>
+
+    <form method="GET" action="${pageContext.request.contextPath}/alumnos/buscar">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" name="nombre" placeholder="Buscar...">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+            </div>
+        </div>
+    </form>
 
     <form method="GET" action="${pageContext.request.contextPath}/alumnos/new">
         <button type="submit" class="btn btn-success mb-3">Agregar Nuevo Alumno</button>
@@ -50,7 +90,7 @@
                 <td>${alumno.edad}</td>
                 <td>${alumno.grado}</td>
                 <td>
-                    <a href="${pageContext.request.contextPath}/alumnos/${alumno.idAlumno}" class="btn btn-info">Actualizar</a>
+                    <a href="${pageContext.request.contextPath}/alumnos/${alumno.idAlumno}" class="btn btn-primary">Actualizar</a>
                     <form method="GET" action="${pageContext.request.contextPath}/alumnos/${alumno.idAlumno}">
                     </form>
                     <form method="POST" action="${pageContext.request.contextPath}/alumnos/${alumno.idAlumno}">
@@ -60,13 +100,27 @@
                 </td>
             </tr>
         </c:forEach>
+        <c:if test="${not empty message}">
+            <div class="alert ${alertClass}" role="alert">
+                ${message}
+            </div>
+        </c:if>
+
         </tbody>
     </table>
 </div>
 
-<footer class="footer mt-auto py-3 bg-dark text-white">
-    <div class="container text-center">
-        <span>&copy; 2023 Escuela Primaria. Todos los derechos reservados.</span>
+<footer class="footer py-3 text-center">
+    <div class="container">
+        <span class="text-muted">© 2023 Instituto Leonarda Gómez Blanco. Todos los derechos reservados.</span>
+        <span class="text-muted">Dirección: Calle Juan Cuamatzi Cuarta, Xicohtzinco.</span>
+        <span class="text-muted">Teléfono: 2222810657.</span>
+        <span class="text-muted">Correo:Xicohtzinco, Tlaxcala C.P 90780.</span>
+        <span class="text-muted">Ciclo escolar: 2023-2024.</span>
+        <span class="text-muted">Turno: Matutino.</span>
+        <span class="text-muted">Horario: 7:00 a 15:00 hrs.</span>
+        <span class="text-muted">Modalidad: Escolarizada.</span>
+        <span class="text-muted">Zona: Urbano.</span>
     </div>
 </footer>
 
