@@ -65,4 +65,10 @@ public class MateriaController {
         return new ModelAndView("redirect:/materias");
     }
 
+    @GetMapping("/buscar")
+    public ModelAndView findByNombre(@RequestParam("nombre") String nombre) {
+        ModelAndView modelAndView = new ModelAndView("materia/read");
+        modelAndView.addObject("materias", materiaService.findByNombre(nombre));
+        return modelAndView;
+    }
 }

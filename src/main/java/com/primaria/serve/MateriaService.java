@@ -31,4 +31,8 @@ public class MateriaService {
     public void delete(Integer id){
         materiaRepository.deleteById(id);
     }
+
+    public List<MateriaEntity> findByNombre(String nombre) {
+        return materiaRepository.findByNombre(nombre);
+    }
 }

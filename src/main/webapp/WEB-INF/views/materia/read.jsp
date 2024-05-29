@@ -59,6 +59,14 @@
     <br>
     <h1 class="mb-4">Lista de Materias</h1>
 
+    <form method="GET" action="${pageContext.request.contextPath}/materias/buscar">
+        <div class="input-group mb-3 mt-3">
+            <input type="text" class="form-control" name="nombre" placeholder="Buscar materia..." >
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Buscar</button>
+            </div>
+        </div>
+
     <form method="GET" action="${pageContext.request.contextPath}/materias/new">
         <button type="submit" class="btn btn-success mb-3">Agregar Nueva Materia</button>
     </form>
