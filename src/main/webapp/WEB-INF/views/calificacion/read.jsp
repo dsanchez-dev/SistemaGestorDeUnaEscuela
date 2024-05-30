@@ -59,6 +59,14 @@
     <br>
     <h1 class="mb-4">Lista de calificaciones</h1>
 
+    <form method="GET" action="${pageContext.request.contextPath}/calificaciones/buscar">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" name="nombre" placeholder="Buscar calificación" name="query">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+                <a href="javascript:history.back()" class="btn btn-secondary">Regresar</a>
+            </div>
+        </div>
 
 
     <form method="GET" action="${pageContext.request.contextPath}/calificaciones/new">

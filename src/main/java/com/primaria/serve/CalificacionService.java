@@ -33,4 +33,7 @@ public class CalificacionService {
         calificacionRepository.deleteById(id);
     }
 
+    public List<CalificacionEntity> findByAlumnoNombre(String nombre) {
+        return calificacionRepository.findByAlumnoNombre(nombre);
+    }
 }

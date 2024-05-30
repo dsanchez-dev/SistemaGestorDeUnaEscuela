@@ -64,4 +64,11 @@ public class PadreDeFamiliaController {
                                              "alert-success");
         return new ModelAndView("redirect:/padres");
     }
+
+    @GetMapping("/buscar")
+    public ModelAndView buscarPorNombre(@RequestParam("nombre") String nombre) {
+        ModelAndView modelAndView = new ModelAndView("padre/read");
+        modelAndView.addObject("padres", padreDeFamiliaService.findByNombre(nombre));
+        return modelAndView;
+    }
 }

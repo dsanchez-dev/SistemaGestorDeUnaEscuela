@@ -55,4 +55,12 @@ public class CalificacionController {
                                              "alert-success");
         return new ModelAndView("redirect:/calificaciones");
     }
+
+    @GetMapping("/buscar")
+    public ModelAndView buscar(@RequestParam("nombre") String nombre) {
+        ModelAndView modelAndView = new ModelAndView("calificacion/read");
+        modelAndView.addObject("calificaciones", calificacionService.findByAlumnoNombre(nombre));
+        return modelAndView;
+    }
+
 }

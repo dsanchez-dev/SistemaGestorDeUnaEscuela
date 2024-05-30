@@ -59,6 +59,16 @@
     <br>
     <h1 class="mb-4">Lista de Padres de familia</h1>
 
+    <form method="GET" action="${pageContext.request.contextPath}/padres/buscar">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" name="nombre" placeholder="Buscar por nombre...">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+                <a href="javascript:history.back()" class="btn btn-secondary">Regresar</a>
+            </div>
+        </div>
+    </form>
+
     <form method="GET" action="${pageContext.request.contextPath}/padres/new">
         <button type="submit" class="btn btn-success mb-3">Agregar Nuevo Padre de familia</button>
     </form>

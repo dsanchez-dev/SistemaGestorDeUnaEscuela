@@ -64,6 +64,7 @@
             <input type="text" class="form-control" name="nombre" placeholder="Buscar materia..." >
             <div class="input-group-append">
                 <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Buscar</button>
+                <a href="javascript:history.back()" class="btn btn-secondary">Regresar</a>
             </div>
         </div>
 

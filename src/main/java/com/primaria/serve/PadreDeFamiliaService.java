@@ -31,4 +31,8 @@ public class PadreDeFamiliaService {
     public void delete(Integer id) {
         padreDeFamiliaRepository.deleteById(id);
     }
+
+    public List<PadreDeFamiliaEntity> findByNombre(String nombre) {
+        return padreDeFamiliaRepository.findByNombre(nombre);
+    }
 }
