@@ -2,7 +2,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <tr>
     <c:choose>
-
         <c:when test="${param.type == 'alumno'}">
             <th>${param.id}</th>
             <th colspan="2">${param.name} ${param.apellido}</th>
@@ -70,7 +69,5 @@
                     </jsp:include>
                 </th>
         </c:when>
-
-
     </c:choose>
 </tr>

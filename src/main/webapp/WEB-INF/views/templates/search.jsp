@@ -1,9 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-</head>
-<body>
-
   <form method="GET" action="${pageContext.request.contextPath}/${param['actionUrl']}">
     <div class="input-group mb-3">
       <input type="text" class="form-control" name="nombre" placeholder="${param['placeholder']}">
@@ -13,6 +8,3 @@
       </div>
     </div>
   </form>
-
-</body>
-</html>

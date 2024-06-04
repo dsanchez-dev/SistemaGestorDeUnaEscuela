@@ -6,9 +6,7 @@
     <jsp:include page="/WEB-INF/views/templates/header.jsp" />
 </head>
 <body>
-
     <jsp:include page="/WEB-INF/views/templates/nav.jsp" />
-
 <div class="container mt-5">
     <br>
     <h1 class="mb-4">Lista de Maestros</h1>
@@ -23,32 +21,29 @@
         <jsp:param name="buttonText" value="Agregar nuevo maestro" />
     </jsp:include>
 
-    <table class="table table-bordered">
-        <thead class="thead-dark">
-        <jsp:include page="/WEB-INF/views/templates/tableHeader.jsp">
-            <jsp:param name="type" value="maestro" />
-        </jsp:include>
-        </thead>
-        <tbody>
-        <c:forEach var="maestro" items="${maestros}">
-            <jsp:include page="/WEB-INF/views/templates/tableBody.jsp">
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+            <jsp:include page="/WEB-INF/views/templates/tableHeader.jsp">
                 <jsp:param name="type" value="maestro" />
-                <jsp:param name="id" value="${maestro.idMaestro}" />
-                <jsp:param name="name" value="${maestro.nombre}" />
-                <jsp:param name="apellido" value="${maestro.apellido}" />
-                <jsp:param name="materia" value="${maestro.materia}" />
-                <jsp:param name="url" value="maestros" />
-                <jsp:param name="idUpdate" value="${maestro.idMaestro}" />
-                <jsp:param name="idDelete" value="${maestro.idMaestro}" />
             </jsp:include>
-        </c:forEach>
-
-        </tbody>
-        <jsp:include page="/WEB-INF/views/templates/tableFooter.jsp" />
-    </table>
+            </thead>
+            <tbody>
+            <c:forEach var="maestro" items="${maestros}">
+                <jsp:include page="/WEB-INF/views/templates/tableBody.jsp">
+                    <jsp:param name="type" value="maestro" />
+                    <jsp:param name="id" value="${maestro.idMaestro}" />
+                    <jsp:param name="name" value="${maestro.nombre}" />
+                    <jsp:param name="apellido" value="${maestro.apellido}" />
+                    <jsp:param name="materia" value="${maestro.materia}" />
+                    <jsp:param name="url" value="maestros" />
+                    <jsp:param name="idUpdate" value="${maestro.idMaestro}" />
+                    <jsp:param name="idDelete" value="${maestro.idMaestro}" />
+                </jsp:include>
+            </c:forEach>
+            </tbody>
+            <jsp:include page="/WEB-INF/views/templates/tableFooter.jsp" />
+        </table>
 </div>
-
     <jsp:include page="/WEB-INF/views/templates/footer.jsp" />
-
 </body>
 </html>

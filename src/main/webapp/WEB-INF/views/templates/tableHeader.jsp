@@ -42,5 +42,4 @@
             </c:when>
 
         </c:choose>
-
     </tr>
