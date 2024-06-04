@@ -33,6 +33,14 @@
                 <th>Acciones</th>
             </c:when>
 
+            <c:when test="${param.type =='calificacion'}">
+                <th>ID</th>
+                <th>Nombre del alumno</th>
+                <th>Materia</th>
+                <th>Calificación</th>
+                <th>Acciones</th>
+            </c:when>
+
         </c:choose>
 
     </tr>

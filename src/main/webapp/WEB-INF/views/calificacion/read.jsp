@@ -23,42 +23,31 @@
             <jsp:param name="buttonText" value="Agregar nueva calificacion" />
         </jsp:include>
 
-        <table class="table table-bordered">
-            <thead class="thead-dark">
-            <tr>
-                <th>ID de la calificación </th>
-                <th>Nombre del alumno</th>
-                <th>Nombre de la materia</th>
-                <th>calificación</th>
-                <th>Acciones</th>
-            </tr>
-            </thead>
-            <tbody>
-            <c:forEach var="calificacion" items="${calificaciones}">
-                <tr>
-                    <td>${calificacion.idCalificacion}</td>
-                    <td>${calificacion.alumno.nombre}</td>
-                    <td>${calificacion.materia.nombre}</td>
-                    <td>${calificacion.calificacion}</td>
-                    <td>
-                        <a href="${pageContext.request.contextPath}/calificaciones/${calificacion.idCalificacion}" class="btn btn-primary">Actualizar</a>
-                        <form method="GET" action="${pageContext.request.contextPath}/calificaciones/${calificacion.idCalificacion}">
-                        </form>
-                        <form method="POST" action="${pageContext.request.contextPath}/calificaciones/${calificacion.idCalificacion}">
-                            <input type="hidden" name="_method" value="DELETE">
-                            <button type="submit" class="btn btn-danger">Eliminar</button>
-                        </form>
-                    </td>
-                </tr>
-            </c:forEach>
-            <c:if test="${not empty message}">
-                <div class="alert ${alertClass}" role="alert">
-                        ${message}
-                </div>
-            </c:if>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+        <jsp:include page="/WEB-INF/views/templates/tableHeader.jsp">
+            <jsp:param name="type" value="calificacion" />
+        </jsp:include>
+        </thead>
+        <tbody>
+        <c:forEach var="calificacion" items="${calificaciones}">
+            <jsp:include page="/WEB-INF/views/templates/tableBody.jsp">
+                <jsp:param name="type" value="calificacion" />
+                <jsp:param name="id" value="${calificacion.idCalificacion}" />
+                <jsp:param name="name" value="${calificacion.alumno.nombre}" />
+                <jsp:param name="materia" value="${calificacion.materia.nombre}" />
+                <jsp:param name="calificacion" value="${calificacion.calificacion}" />
+                <jsp:param name="url" value="calificaciones" />
+                <jsp:param name="idUpdate" value="${calificacion.idCalificacion}" />
+                <jsp:param name="idDelete" value="${calificacion.idCalificacion}" />
+            </jsp:include>
+        </c:forEach>
 
-            </tbody>
-        </table>
+        </tbody>
+        <jsp:include page="/WEB-INF/views/templates/tableFooter.jsp" />
+    </table>
+
+
 </div>
 
     <jsp:include page="/WEB-INF/views/templates/footer.jsp" />
