@@ -37,7 +37,7 @@
                 <jsp:param name="name" value="${maestro.nombre}" />
                 <jsp:param name="apellido" value="${maestro.apellido}" />
                 <jsp:param name="materia" value="${maestro.materia}" />
-                <jsp:param name="url" value="alumnos" />
+                <jsp:param name="url" value="maestros" />
                 <jsp:param name="idUpdate" value="${maestro.idMaestro}" />
                 <jsp:param name="idDelete" value="${maestro.idMaestro}" />
             </jsp:include>
