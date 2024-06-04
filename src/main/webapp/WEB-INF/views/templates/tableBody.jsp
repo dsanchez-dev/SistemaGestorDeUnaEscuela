@@ -44,5 +44,20 @@
                 </th>
         </c:when>
 
+        <c:when test="${param.type == 'materia'}">
+            <th>${param.id}</th>
+            <th colspan="2">${param.name}</th>
+            <th>${param.maestro}</th>
+                <th>
+                    <jsp:include page="/WEB-INF/views/templates/updatedeletebuttons.jsp">
+                        <jsp:param name="url" value="${param.url}" />
+                        <jsp:param name="idUpdate" value="${param.idUpdate}" />
+                        <jsp:param name="idDelete" value="${param.idDelete}" />
+                    </jsp:include>
+                </th>
+        </c:when>
+
+
+
     </c:choose>
 </tr>

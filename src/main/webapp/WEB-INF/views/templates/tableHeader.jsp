@@ -26,6 +26,13 @@
                 <th>Acciones</th>
             </c:when>
 
+            <c:when test="${param.type == 'materia'}">
+                <th>ID</th>
+                <th colspan="2">Nombre de la materia</th>
+                <th>Maestro</th>
+                <th>Acciones</th>
+            </c:when>
+
         </c:choose>
 
     </tr>

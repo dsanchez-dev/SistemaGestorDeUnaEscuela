@@ -25,38 +25,27 @@
 
     <table class="table table-bordered">
         <thead class="thead-dark">
-        <tr>
-            <th>ID</th>
-            <th>Nombre de la materia</th>
-            <th>Maestro</th>
-            <th>Acciones</th>
-        </tr>
+        <jsp:include page="/WEB-INF/views/templates/tableHeader.jsp">
+            <jsp:param name="type" value="materia" />
+        </jsp:include>
         </thead>
         <tbody>
         <c:forEach var="materia" items="${materias}">
-            <tr>
-                <td>${materia.idMateria}</td>
-                <td>${materia.nombre}</td>
-                <td>${materia.maestro.nombre}</td>
-                <td>
-                    <a href="${pageContext.request.contextPath}/materias/${materia.idMateria}" class="btn btn-primary">Actualizar</a>
-                    <form method="GET" action="${pageContext.request.contextPath}/materias/${materia.idMateria}">
-                    </form>
-                    <form method="POST" action="${pageContext.request.contextPath}/materias/${materia.idMateria}">
-                        <input type="hidden" name="_method" value="DELETE">
-                        <button type="submit" class="btn btn-danger">Eliminar</button>
-                    </form>
-                </td>
-            </tr>
+            <jsp:include page="/WEB-INF/views/templates/tableBody.jsp">
+                <jsp:param name="type" value="materia" />
+                <jsp:param name="id" value="${materia.idMateria}" />
+                <jsp:param name="name" value="${materia.nombre}" />
+                <jsp:param name="maestro" value="${materia.maestro.nombre}" />
+                <jsp:param name="url" value="materias" />
+                <jsp:param name="idUpdate" value="${materia.idMateria}" />
+                <jsp:param name="idDelete" value="${materia.idMateria}" />
+            </jsp:include>
         </c:forEach>
-        <c:if test="${not empty message}">
-            <div class="alert ${alertClass}" role="alert">
-                    ${message}
-            </div>
-        </c:if>
 
         </tbody>
+        <jsp:include page="/WEB-INF/views/templates/tableFooter.jsp" />
     </table>
+
 </div>
 
     <jsp:include page="/WEB-INF/views/templates/footer.jsp" />
