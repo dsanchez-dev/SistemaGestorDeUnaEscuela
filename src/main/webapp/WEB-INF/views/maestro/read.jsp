@@ -25,35 +25,26 @@
 
     <table class="table table-bordered">
         <thead class="thead-dark">
-        <tr>
-            <th>ID</th>
-            <th colspan="2">Nombre del Maestro</th>
-            <th>Materia</th>
-            <th>Acciones</th>
-        </tr>
+        <jsp:include page="/WEB-INF/views/templates/tableHeader.jsp">
+            <jsp:param name="type" value="maestro" />
+        </jsp:include>
         </thead>
         <tbody>
         <c:forEach var="maestro" items="${maestros}">
-            <tr>
-                <td>${maestro.idMaestro}</td>
-                <td>${maestro.nombre}</td>
-                <td>${maestro.apellido}</td>
-                <td>${maestro.materia}</td>
-                <td>
-                    <jsp:include page="/WEB-INF/views/templates/updatedeletebuttons.jsp">
-                        <jsp:param name="url" value="maestros" />
-                        <jsp:param name="id" value="${maestro.idMaestro}" />
-                    </jsp:include>
-                </td>
-            </tr>
+            <jsp:include page="/WEB-INF/views/templates/tableBody.jsp">
+                <jsp:param name="type" value="maestro" />
+                <jsp:param name="id" value="${maestro.idMaestro}" />
+                <jsp:param name="name" value="${maestro.nombre}" />
+                <jsp:param name="apellido" value="${maestro.apellido}" />
+                <jsp:param name="materia" value="${maestro.materia}" />
+                <jsp:param name="url" value="alumnos" />
+                <jsp:param name="idUpdate" value="${maestro.idMaestro}" />
+                <jsp:param name="idDelete" value="${maestro.idMaestro}" />
+            </jsp:include>
         </c:forEach>
-        <c:if test="${not empty message}">
-            <div class="alert ${alertClass}" role="alert">
-                    ${message}
-            </div>
-        </c:if>
 
         </tbody>
+        <jsp:include page="/WEB-INF/views/templates/tableFooter.jsp" />
     </table>
 </div>
 

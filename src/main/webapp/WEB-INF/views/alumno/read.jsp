@@ -13,49 +13,39 @@
     <br>
     <h1 class="mb-4">Lista de Alumnos</h1>
 
-    <jsp:include page="/WEB-INF/views/templates/search.jsp">
-        <jsp:param name="actionUrl" value="alumnos/buscar" />
-        <jsp:param name="placeholder" value="Buscar Alumno..." />
-    </jsp:include>
+        <jsp:include page="/WEB-INF/views/templates/search.jsp">
+            <jsp:param name="actionUrl" value="alumnos/buscar" />
+            <jsp:param name="placeholder" value="Buscar Alumno..." />
+        </jsp:include>
 
-    <jsp:include page="/WEB-INF/views/templates/addnewbutton.jsp">
-        <jsp:param name="newUrl" value="alumnos/new" />
-        <jsp:param name="buttonText" value="Agregar nuevo alumno" />
-    </jsp:include>
+        <jsp:include page="/WEB-INF/views/templates/addnewbutton.jsp">
+            <jsp:param name="newUrl" value="alumnos/new" />
+            <jsp:param name="buttonText" value="Agregar nuevo alumno" />
+        </jsp:include>
 
     <table class="table table-bordered">
         <thead class="thead-dark">
-        <tr>
-            <th>ID</th>
-            <th colspan="2">Nombre del alumno</th>
-            <th>Edad</th>
-            <th>Grado</th>
-            <th>Acciones</th>
-        </tr>
+            <jsp:include page="/WEB-INF/views/templates/tableHeader.jsp">
+                <jsp:param name="type" value="alumno" />
+            </jsp:include>
         </thead>
         <tbody>
         <c:forEach var="alumno" items="${alumnos}">
-            <tr>
-                <td>${alumno.idAlumno}</td>
-                <td>${alumno.nombre}</td>
-                <td>${alumno.apellido}</td>
-                <td>${alumno.edad}</td>
-                <td>${alumno.grado}</td>
-                <td>
-                    <jsp:include page="/WEB-INF/views/templates/updatedeletebuttons.jsp">
-                        <jsp:param name="url" value="alumnos" />
-                        <jsp:param name="id" value="${alumno.idAlumno}" />
-                    </jsp:include>
-                </td>
-            </tr>
+            <jsp:include page="/WEB-INF/views/templates/tableBody.jsp">
+                <jsp:param name="type" value="alumno" />
+                <jsp:param name="id" value="${alumno.idAlumno}" />
+                <jsp:param name="name" value="${alumno.nombre}" />
+                <jsp:param name="apellido" value="${alumno.apellido}" />
+                <jsp:param name="age" value="${alumno.edad}" />
+                <jsp:param name="grade" value="${alumno.grado}" />
+                <jsp:param name="url" value="alumnos" />
+                <jsp:param name="idUpdate" value="${alumno.idAlumno}" />
+                <jsp:param name="idDelete" value="${alumno.idAlumno}" />
+            </jsp:include>
         </c:forEach>
-        <c:if test="${not empty message}">
-            <div class="alert ${alertClass}" role="alert">
-                ${message}
-            </div>
-        </c:if>
 
         </tbody>
+            <jsp:include page="/WEB-INF/views/templates/tableFooter.jsp" />
     </table>
 </div>
 
