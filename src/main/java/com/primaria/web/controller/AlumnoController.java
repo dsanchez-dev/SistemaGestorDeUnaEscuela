@@ -42,20 +42,18 @@ public class AlumnoController {
 
     @PutMapping("/guardar")
     public ModelAndView saveOrUpdate(@ModelAttribute("alumno") AlumnoEntity alumno, RedirectAttributes redirectAttributes) {
+        boolean isNew = (alumno.getIdAlumno() == null);
         alumnoService.save(alumno);
-        if (alumno.getIdAlumno() ==null) {
-            redirectAttributes.addFlashAttribute("message",
-                                                 "Operacion fallida!");
-            redirectAttributes.addFlashAttribute("alertClass",
-                                                 "alert-danger");
+        if (isNew) {
+            redirectAttributes.addFlashAttribute("message", "Alumno creado exitosamente!");
+            redirectAttributes.addFlashAttribute("alertClass", "alert-success");
         } else {
-            redirectAttributes.addFlashAttribute("message",
-                                                "Operacion realizada correctamente!");
-            redirectAttributes.addFlashAttribute("alertClass",
-                                                 "alert-success");
+            redirectAttributes.addFlashAttribute("message", "Alumno actualizado exitosamente!");
+            redirectAttributes.addFlashAttribute("alertClass", "alert-success");
         }
         return new ModelAndView("redirect:/alumnos");
     }
+
 
     @DeleteMapping("/{id}")
     public ModelAndView deleteById(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
