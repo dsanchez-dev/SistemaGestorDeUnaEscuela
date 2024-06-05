@@ -1,7 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
+    <title>Maestro</title>
     <jsp:include page="/WEB-INF/views/templates/header.jsp" />
 </head>
 
@@ -14,31 +16,21 @@
         <div class="card-header">
             <h2 class="mb-0">Formulario de Maestro</h2>
         </div>
-        <div class="card-body">
-            <form:form modelAttribute="maestro" action="${pageContext.request.contextPath}/maestros/guardar" method="PUT"  cssClass="was-validated form-inline">
-                <form:hidden path="idMaestro"/>
-                <input type="hidden" name="_method" value="PUT">
-                <div class="form-group mb-2">
-                    <form:label path="nombre" cssClass="sr-only">nombre</form:label>
-                    <form:input path="nombre" class="form-control" required="true" placeholder="Nombre"/>
-                </div>
-                <div class="form-group mx-sm-3 mb-2">
-                    <form:label path="apellido" cssClass="sr-only">apellido</form:label>
-                    <form:input path="apellido" class="form-control" required="true" placeholder="Apellido"/>
-                </div>
-                <div class="form-group mx-sm-3 mb-2">
-                    <form:label path="materia" cssClass="sr-only">edad</form:label>
-                    <form:input path="materia" class="form-control" required="true" placeholder="Materia"/>
-                </div>
-                <button type="submit" class="btn btn-primary mb-2">${maestro.idMaestro != null ? 'Actualizar' : 'Crear'}</button>
-                <a href="javascript:history.back()" class="btn btn-secondary">Regresar</a>
-            </form:form>
-            <c:if test="${not empty message}">
-                <div class="alert ${alertClass}" role="alert">
-                        ${message}
-                </div>
-            </c:if>
-        </div>
+
+        <jsp:include page="/WEB-INF/views/templates/form.jsp">
+            <jsp:param name="type" value="maestro"/>
+            <jsp:param name="modelAttribute" value="maestro"/>
+            <jsp:param name="url" value="/maestros/guardar"/>
+            <jsp:param name="httpMethod" value="${maestro.idMaestro != null ? 'PUT' : 'POST'}"/>
+            <jsp:param name="id" value="${maestro.idMaestro}"/>
+            <jsp:param name="label1" value="nombre"/>
+            <jsp:param name="placeholder1" value="Nombre del maestro"/>
+            <jsp:param name="label2" value="apellido"/>
+            <jsp:param name="placeholder2" value="Apellido del maestro"/>
+            <jsp:param name="label3" value="materia"/>
+            <jsp:param name="placeholder3" value="nombre de la materia"/>
+        </jsp:include>
+
     </div>
 </div>
 

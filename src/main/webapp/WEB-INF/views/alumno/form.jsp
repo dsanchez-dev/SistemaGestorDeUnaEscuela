@@ -1,8 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+  <title>Alumno</title>
   <jsp:include page="/WEB-INF/views/templates/header.jsp" />
 </head>
 <body>
@@ -16,6 +17,7 @@
     </div>
 
     <jsp:include page="/WEB-INF/views/templates/form.jsp">
+      <jsp:param name="type" value="alumno"/>
       <jsp:param name="modelAttribute" value="alumno"/>
       <jsp:param name="url" value="/alumnos/guardar"/>
       <jsp:param name="httpMethod" value="${alumno.idAlumno != null ? 'PUT' : 'POST'}"/>

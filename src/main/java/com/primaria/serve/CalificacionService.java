@@ -36,4 +36,8 @@ public class CalificacionService {
     public List<CalificacionEntity> findByAlumnoNombre(String nombre) {
         return calificacionRepository.findByAlumnoNombre(nombre);
     }
+
+    public CalificacionEntity findById(Long id) {
+        return calificacionRepository.findById(id.compareTo(id)).orElseThrow(() -> new RuntimeException("Calificación no encontrada"));
+    }
 }

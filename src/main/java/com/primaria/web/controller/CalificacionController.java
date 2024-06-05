@@ -38,8 +38,16 @@ public class CalificacionController {
         return modelAndView;
     }
 
+    @GetMapping("/edit/{id}")
+    public ModelAndView editCalificacion(@PathVariable Long id) {
+        ModelAndView modelAndView = new ModelAndView("calificacion/form");
+        CalificacionEntity calificacion = calificacionService.findById(id);
+        modelAndView.addObject("calificacion", calificacion);
+        return modelAndView;
+    }
+
     @PostMapping("/guardar")
-    public ModelAndView save(CalificacionEntity calificacion, RedirectAttributes redirectAttributes) {
+    public ModelAndView saveOrUpdate(@ModelAttribute CalificacionEntity calificacion, RedirectAttributes redirectAttributes) {
         calificacionService.save(calificacion);
         redirectAttributes.addFlashAttribute("message", "Operación realizada correctamente!");
         redirectAttributes.addFlashAttribute("alertClass", "alert-success");
