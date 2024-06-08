@@ -37,9 +37,9 @@ public class SecurityConfig {
                         .permitAll()
                 )
                 .logout(logout -> logout
-                        .logoutUrl("/logout") // Configurar la URL de logout
-                        .logoutSuccessUrl("/login?logout") // Configurar la URL de redirección después de cerrar sesión
-                        .permitAll() // Permitir acceso a la URL de logout
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/login?logout")
+                        .permitAll()
                 )
                 .csrf(csrf -> csrf
                         .disable()
@@ -65,6 +65,4 @@ public class SecurityConfig {
                 .build());
         return manager;
     }
-
-
 }

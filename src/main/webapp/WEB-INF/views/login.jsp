@@ -12,11 +12,14 @@
     <a class="navbar-brand" href="#">Instituto Leonarda Gómez Blanco</a>
 </nav>
 <div class="container">
+
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card mt-5">
                 <div class="card-body">
+
                     <h2 class="text-center">Login</h2>
+
                     <form method="post" action="/login" class="mt-4">
                         <div class="form-group">
                             <label for="username">Username:</label>
@@ -30,10 +33,12 @@
                             <button type="submit" class="btn btn-primary">Iniciar sesión </button>
                         </div>
                     </form>
+
                 </div>
             </div>
         </div>
     </div>
+
 </div>
 
 <jsp:include page="/WEB-INF/views/templates/footer.jsp" />

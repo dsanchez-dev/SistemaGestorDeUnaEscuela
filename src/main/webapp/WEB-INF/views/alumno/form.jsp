@@ -12,6 +12,7 @@
 
 <div class="container mt-5">
   <div class="card">
+
     <div class="card-header">
       <h2 class="mb-0">Formulario de Alumno</h2>
     </div>
@@ -33,7 +34,6 @@
     </jsp:include>
 
   </div>
-
 </div>
 
 <jsp:include page="/WEB-INF/views/templates/footer.jsp" />
