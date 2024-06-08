@@ -33,6 +33,7 @@
     </jsp:include>
 
   </div>
+
 </div>
 
 <jsp:include page="/WEB-INF/views/templates/footer.jsp" />

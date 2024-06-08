@@ -58,9 +58,9 @@ public class CalificacionController {
     public ModelAndView deleteById(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
         calificacionService.delete(id);
         redirectAttributes.addFlashAttribute("message",
-                                             "Operación realizada correctamente!");
+                                             "Calificación eliminada correctamente!");
         redirectAttributes.addFlashAttribute("alertClass",
-                                             "alert-success");
+                                             "alert-danger");
         return new ModelAndView("redirect:/calificaciones");
     }
 

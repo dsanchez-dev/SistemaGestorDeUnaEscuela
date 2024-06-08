@@ -59,9 +59,9 @@ public class PadreDeFamiliaController {
     public ModelAndView deletePadreById(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
         padreDeFamiliaService.delete(id);
         redirectAttributes.addFlashAttribute("message",
-                                             "Operacion realizada correctamente!");
+                                             "Padre de familia eliminado correctamente!");
         redirectAttributes.addFlashAttribute("alertClass",
-                                             "alert-success");
+                                             "alert-danger");
         return new ModelAndView("redirect:/padres");
     }
 

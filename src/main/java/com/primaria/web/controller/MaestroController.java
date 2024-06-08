@@ -60,7 +60,7 @@ public class MaestroController {
     public ModelAndView deleteMaestroById(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
         maestroService.delete(id);
         redirectAttributes.addFlashAttribute("message",
-                                             "Maestro eliminado exitosamente!");
+                                             "Eliminado correctamente!");
         redirectAttributes.addFlashAttribute("alertClass",
                                              "alert-danger");
         return new ModelAndView("redirect:/maestros");

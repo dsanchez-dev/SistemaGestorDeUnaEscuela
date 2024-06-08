@@ -32,7 +32,7 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary mb-2">${param.id == null || param.id.isEmpty() ? 'Crear' : 'Actualizar'}</button>
-                <b href="javascript:history.back()" class="btn btn-secondary">Regresar</b>
+                <a href="javascript:history.back()" class="btn btn-secondary">Regresar</a>
 
             </form:form>
 
@@ -62,7 +62,7 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary mb-2">${param.id == null || param.id.isEmpty() ? 'Crear' : 'Actualizar'}</button>
-                <b href="javascript:history.back()" class="btn btn-secondary">Regresar</b>
+                <a href="javascript:history.back()" class="btn btn-secondary">Regresar</a>
 
             </form:form>
 
@@ -97,7 +97,7 @@
                     </div>
 
                     <button type="submit" class="btn btn-primary mb-2">${param.id == null || param.id.isEmpty() ? 'Crear' : 'Actualizar'}</button>
-                    <b href="javascript:history.back()" class="btn btn-secondary">Regresar</b>
+                    <a href="javascript:history.back()" class="btn btn-secondary">Regresar</a>
 
                 </form:form>
 

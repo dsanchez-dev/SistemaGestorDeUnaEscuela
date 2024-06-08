@@ -61,7 +61,7 @@ public class MateriaController {
         redirectAttributes.addFlashAttribute("message",
                                              "Materia eliminada correctamente!");
         redirectAttributes.addFlashAttribute("alertClass",
-                                             "alert-success");
+                                             "alert-danger");
         return new ModelAndView("redirect:/materias");
     }
 
