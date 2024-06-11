@@ -11,8 +11,6 @@ public class MainController {
 
         @GetMapping("/inicio")
         public ModelAndView index() {
-            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-            System.out.println(auth);
             return new ModelAndView("index");
         }
 
